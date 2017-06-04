@@ -1,0 +1,17 @@
+{
+  "Error": {
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "stack": {
+        "type": "text",
+        "nullable": true
+      },
+      "code": {
+        "type": "int",
+        "nullable": true
+      }
+    }
+  }
+}
