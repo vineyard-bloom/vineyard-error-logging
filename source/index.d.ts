@@ -1,12 +1,13 @@
 import { Collection, Modeler } from "vineyard-ground";
-export interface Error {
+export interface ErrorRecord {
     message: string;
     stack?: string;
     code?: number;
+    key?: string;
 }
 export declare class StandardErrorLogger {
     errorCollection: Collection<Error>;
     constructor(errorCollection: Collection<Error>);
-    logError(error: Error): Promise<any>;
+    logError(error: ErrorRecord): Promise<any>;
 }
 export declare function initializeErrorLogSchema(modeler: Modeler): void;

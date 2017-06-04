@@ -5,7 +5,18 @@ var StandardErrorLogger = (function () {
         this.errorCollection = errorCollection;
     }
     StandardErrorLogger.prototype.logError = function (error) {
-        return this.errorCollection.create(error);
+        var message = error.stack ? error.stack : error.message;
+        if (error.code)
+            console.error("Error", error.code, message);
+        else
+            console.error("Error", message);
+        var record = {
+            message: error.message,
+            stack: error.stack || null,
+            code: error.code || null,
+            key: error.key || null
+        };
+        return this.errorCollection.create(record);
     };
     return StandardErrorLogger;
 }());

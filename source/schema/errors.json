@@ -1,17 +1,29 @@
 {
   "Error": {
     "properties": {
+      "id": {
+        "type": "long"
+      },
+      "code": {
+        "type": "int",
+        "nullable": true
+      },
+      "key": {
+        "type": "string",
+        "nullable": true
+      },
       "message": {
         "type": "string"
       },
       "stack": {
         "type": "text",
         "nullable": true
-      },
-      "code": {
-        "type": "int",
-        "nullable": true
       }
+    },
+    "additional": {
+      "autoFields": [
+        "created"
+      ]
     }
   }
 }
