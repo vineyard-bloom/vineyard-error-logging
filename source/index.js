@@ -1,5 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var ConsoleErrorLogger = (function () {
+    function ConsoleErrorLogger() {
+    }
+    ConsoleErrorLogger.prototype.logError = function (error) {
+        console.error(error.stack || error.message);
+    };
+    return ConsoleErrorLogger;
+}());
+exports.ConsoleErrorLogger = ConsoleErrorLogger;
 var StandardErrorLogger = (function () {
     function StandardErrorLogger(errorCollection) {
         this.errorCollection = errorCollection;

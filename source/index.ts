@@ -7,7 +7,17 @@ export interface ErrorRecord {
   key?: string
 }
 
-export class StandardErrorLogger {
+export interface ErrorLogger {
+  logError(error: ErrorRecord): Promise<any> | void
+}
+
+export class ConsoleErrorLogger implements ErrorLogger {
+  logError(error) {
+    console.error(error.stack || error.message)
+  }
+}
+
+export class StandardErrorLogger implements ErrorLogger {
   errorCollection: Collection<Error>
 
   constructor(errorCollection: Collection<Error>) {
@@ -21,7 +31,7 @@ export class StandardErrorLogger {
     else
       console.error("Error", message)
 
-    const record:ErrorRecord = {
+    const record: ErrorRecord = {
       message: error.message,
       stack: error.stack || null,
       code: error.code || null,
