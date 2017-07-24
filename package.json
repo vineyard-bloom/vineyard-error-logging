@@ -1,6 +1,6 @@
 {
   "name": "vineyard-error-logging",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Error logging to a database",
   "main": "source/index.js",
   "types": "source/index.d.ts",
