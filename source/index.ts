@@ -12,7 +12,7 @@ export interface ErrorLogger {
 }
 
 export class ConsoleErrorLogger implements ErrorLogger {
-  logError(error) {
+  logError(error:Error) {
     console.error(error.stack || error.message)
   }
 }
@@ -33,9 +33,9 @@ export class StandardErrorLogger implements ErrorLogger {
 
     const record: ErrorRecord = {
       message: error.message,
-      stack: error.stack || null,
-      code: error.code || null,
-      key: error.key || null
+      stack: error.stack,
+      code: error.code,
+      key: error.key
     }
     return this.errorCollection.create(record)
   }
